@@ -5,13 +5,19 @@ authors = ["pzhxbz <pzhxbz@qq.com>"]
 edition = "2021"
 
 [workspace]
-members = [
-    "dbg_core",
-    "dbg_gui",
-]
+members = ["dbg_core", "dbg_gui"]
 
+[[bin]]
+name = "dbg"
+path = "src/main.rs"
+
+
+[dependencies]
+dbg_core = { path = "dbg_core" }
+dbg_gui = { path = "dbg_gui" }
 
 [profile.release]
+opt-level = 2
 lto = true
 codegen-units = 1
 panic = 'abort'
